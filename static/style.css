@@ -1,0 +1,103 @@
+/* Air SVGs - Professional Design System Styles */
+
+:root {
+  --accent-color: #0ea5e9;
+  --accent-hover: #0284c7;
+  --card-shadow: 0 6px 20px rgba(14, 165, 233, 0.1);
+  --border-radius: 0.75rem;
+}
+
+/* Typography improvements */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+/* Hero section styling */
+.hero {
+  padding: 4rem 0;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--muted-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card styling */
+.logo-card {
+  transition: all 0.2s ease;
+  border: 1px solid var(--muted-border-color);
+  border-radius: var(--border-radius);
+  background: var(--card-background-color);
+}
+
+.logo-card:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+/* Grid layout */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* Button styling */
+.btn-primary {
+  background: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* Usage section */
+.usage-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--card-background-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--muted-border-color);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 0;
+  }
+  
+  .logo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .logo-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .logo-card:hover {
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.2);
+  }
+}
