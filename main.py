@@ -60,7 +60,7 @@ def index():
             air.Meta(name="viewport", content="width=device-width, initial-scale=1"),
             air.Title("Air Logos – SVG Assets"),
             air.Meta(name="description", content="Official SVG assets for the Air web framework. Download logos in various formats."),
-            air.Link(href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css", rel="stylesheet"),
+            # Minimal styling only — no external CSS framework
             air.Link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap", rel="stylesheet"),
             air.Link(href="/static/style.css", rel="stylesheet")
         ),
@@ -134,10 +134,25 @@ def index():
 def layout(request: air.Request, *content):
     if not isinstance(request, air.Request):
         raise Exception('First arg of layout needs to be an air.Request')
-    return air.layouts.picocss(
-        nav(),
-        *content,
-        footer()
+    # Simple, framework-free layout that only includes our styles and font.
+    return air.Html(
+        air.Head(
+            air.Meta(charset="utf-8"),
+            air.Meta(name="viewport", content="width=device-width, initial-scale=1"),
+            air.Title("Air Logos"),
+            air.Link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap", rel="stylesheet"),
+            air.Link(href="/static/style.css", rel="stylesheet"),
+        ),
+        air.Body(
+            air.Main(
+                air.Div(
+                    nav(),
+                    *content,
+                    footer(),
+                    class_="container"
+                )
+            )
+        )
     )
 
 

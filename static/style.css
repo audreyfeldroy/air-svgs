@@ -1,103 +1,67 @@
-/* Air SVGs - Professional Design System Styles */
+/* Minimal, framework-free styles for air-svgs
+   - Small reset
+   - CSS variables for easy theming
+   - Container, nav, grid, card, and button utilities
+*/
 
 :root {
-  --accent-color: #0ea5e9;
-  --accent-hover: #0284c7;
-  --card-shadow: 0 6px 20px rgba(14, 165, 233, 0.1);
-  --border-radius: 0.75rem;
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --border: #e6e9ef;
+  --accent: #0ea5e9;
+  --accent-600: #0284c7;
+  --radius: 12px;
+  --container-width: 1100px;
 }
 
-/* Typography improvements */
+/* Basic reset */
+* { box-sizing: border-box; }
+html,body { height: 100%; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Hero section styling */
-.hero {
-  padding: 4rem 0;
-  text-align: center;
-  max-width: 800px;
+/* Layout helpers */
+.container {
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 2rem 1.25rem;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 5vw, 3rem);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  letter-spacing: -0.025em;
-}
+/* Simple nav */
+nav { display:flex; gap:1rem; align-items:center; flex-wrap:wrap; }
+nav a { color: inherit; text-decoration: none; font-weight:500; }
+nav a:hover { text-decoration: underline; }
 
-.hero p {
-  font-size: 1.125rem;
-  color: var(--muted-color);
-  max-width: 600px;
-  margin: 0 auto;
-}
+/* Hero */
+.hero { text-align:center; max-width:800px; margin:2rem auto; padding:2rem 0; }
+.hero h1 { margin:0 0 0.5rem 0; font-size:clamp(1.75rem,4.5vw,2.5rem); }
+.hero p { margin:0; color:var(--muted); }
 
-/* Card styling */
-.logo-card {
-  transition: all 0.2s ease;
-  border: 1px solid var(--muted-border-color);
-  border-radius: var(--border-radius);
-  background: var(--card-background-color);
-}
+/* Grid and cards */
+.logo-grid { display:grid; gap:1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin:2rem 0; }
+.logo-card { padding:1.25rem; border:1px solid var(--border); border-radius:var(--radius); text-align:center; background:transparent; transition:box-shadow .18s ease, transform .12s ease; }
+.logo-card:hover { box-shadow: 0 8px 24px rgba(16,24,40,0.06); transform: translateY(-3px); }
 
-.logo-card:hover {
-  box-shadow: var(--card-shadow);
-  transform: translateY(-2px);
-}
+/* Buttons / links */
+.btn-primary, .btn { display:inline-block; padding:0.5rem 0.9rem; border-radius:8px; border:1px solid var(--accent); background:var(--accent); color:#fff; text-decoration:none; font-weight:600; }
+.btn-outline { background:transparent; color:var(--accent); border:1px solid var(--accent); }
+.btn:hover { background:var(--accent-600); border-color:var(--accent-600); }
 
-/* Grid layout */
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin: 3rem 0;
-}
+/* Usage section and footer */
+.usage-section { padding:1.25rem; border:1px solid var(--border); border-radius:var(--radius); background:transparent; color:var(--text); }
+footer { margin-top:3rem; padding-top:1.25rem; border-top:1px solid var(--border); color:var(--muted); text-align:center; }
 
-/* Button styling */
-.btn-primary {
-  background: var(--accent-color) !important;
-  border-color: var(--accent-color) !important;
-  transition: all 0.2s ease;
-}
+/* Accessibility tweaks */
+a[download] { -webkit-touch-callout:none; }
 
-.btn-primary:hover {
-  background: var(--accent-hover) !important;
-  border-color: var(--accent-hover) !important;
-  transform: translateY(-1px);
-}
-
-/* Usage section */
-.usage-section {
-  text-align: center;
-  margin-top: 4rem;
-  padding: 2rem;
-  background: var(--card-background-color);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--muted-border-color);
-}
-
-/* Responsive improvements */
-@media (max-width: 768px) {
-  .hero {
-    padding: 2rem 0;
-  }
-  
-  .logo-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .logo-card {
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* Dark mode enhancements */
-@media (prefers-color-scheme: dark) {
-  .logo-card:hover {
-    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.2);
-  }
+@media (max-width:600px) {
+  .container { padding:1rem; }
+  .hero { margin:1rem 0; }
 }
