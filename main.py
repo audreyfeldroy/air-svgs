@@ -40,7 +40,7 @@ def LogoCard(title: str, preview_component, downloads: list):
             *downloads,
             _style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;"
         ),
-        _style="""
+    _style="""
             padding: 2rem 1.5rem;
             border: 1px solid var(--muted-border-color);
             border-radius: 0.75rem;
@@ -48,7 +48,7 @@ def LogoCard(title: str, preview_component, downloads: list):
             transition: box-shadow 0.2s ease;
             background: var(--card-background-color);
         """,
-        _class="logo-card"
+    class_="logo-card"
     )
 
 
@@ -73,7 +73,7 @@ def index():
                     air.Section(
                         air.H1("Air Logos"),
                         air.P("Official SVG assets for the Air web framework."),
-                        _class="hero"
+                        class_="hero"
                     ),
                     
                     # Logo Grid Section
@@ -82,35 +82,35 @@ def index():
                             "1-Color",
                             air.Img(src="/static/air-deep-sky-blue.svg", alt="Air logo 1-color", width=200, height=200),
                             [
-                                air.A("Download SVG", href="/static/air-deep-sky-blue.svg", download="air-logo-1color.svg", _class="btn-primary"),
-                                air.A("Neon Variant", href="/static/air-neon.svg", download="air-logo-neon.svg", _class="secondary outline")
+                                air.A("Download SVG", href="/static/air-deep-sky-blue.svg", download="air-logo-1color.svg", class_="btn-primary"),
+                                air.A("Neon Variant", href="/static/air-neon.svg", download="air-logo-neon.svg", class_="secondary outline")
                             ]
                         ),
                         LogoCard(
                             "3-Color",
                             air.Img(src="/static/air-3color.svg", alt="Air logo 3-color", width=200, height=200),
                             [
-                                air.A("Download SVG", href="/static/air-3color.svg", download="air-logo-3color.svg", _class="btn-primary")
+                                air.A("Download SVG", href="/static/air-3color.svg", download="air-logo-3color.svg", class_="btn-primary")
                             ]
                         ),
-                        _class="logo-grid"
+                        class_="logo-grid"
                     ),
 
                     # Air Tag Components Section (kept for backward compatibility)
-                    air.Div(
-                        air.H3("Component Versions", _style="text-align: center; margin: 2rem 0 1rem 0;"),
-                        LogoCard(
-                            "1-Color Tag",
-                            Air1ColorLogo(),
-                            []
-                        ),
-                        LogoCard(
-                            "3-Color Tag", 
-                            Air3ColorLogo(),
-                            []
-                        ),
-                        _class="logo-grid"
-                    ),
+                    # air.Div(
+                    #     air.H3("Component Versions", _style="text-align: center; margin: 2rem 0 1rem 0;"),
+                    #     LogoCard(
+                    #         "1-Color Tag",
+                    #         Air1ColorLogo(),
+                    #         []
+                    #     ),
+                    #     LogoCard(
+                    #         "3-Color Tag", 
+                    #         Air3ColorLogo(),
+                    #         []
+                    #     ),
+                    #     class_="logo-grid"
+                    # ),
 
                     # Usage Section
                     air.Section(
@@ -120,11 +120,11 @@ def index():
                             air.A("issue on GitHub", href="https://github.com/feldroy/air-svgs/issues/new"),
                             " and we'll take a look."
                         ),
-                        _class="usage-section"
+                        class_="usage-section"
                     ),
                     
                     footer(),
-                    _class="container"
+                    class_="container"
                 )
             )
         )
