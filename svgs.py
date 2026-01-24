@@ -1,4 +1,4 @@
-import air.svg as s
+from air.tags.models import svg as s
 
 
 def Air1ColorLogo():
