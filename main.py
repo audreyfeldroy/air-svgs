@@ -2,11 +2,9 @@ import air
 import importlib
 from air_markdown import Markdown
 from fastapi import HTTPException
-from fastapi import FastAPI
 from pathlib import Path
 
 app = air.Air()
-api = FastAPI()
 
 app.mount("/static", air.StaticFiles(directory="static"), name="static")
 
@@ -230,7 +228,7 @@ def mdpage(request: air.Request, slug: str):
         )
     path = Path(f"pages/{slug}.py")
     if path.exists():
-        module_name = f'pages.{slug.replace('/', '.')}'     
+        module_name = f'pages.{slug.replace('/', '.')}'
         mod = importlib.import_module(module_name)
         return layout(
             request, mod.render(request)

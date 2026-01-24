@@ -13,7 +13,7 @@ list:
 # Run the blog in development mode with reload
 run: 
     @lsof -ti tcp:8000 | xargs kill -9 || true
-    uv run fastapi dev main.py --reload
+    uv run air run
 
 # Run all the formatting, linting, and type checking commands
 qa:
