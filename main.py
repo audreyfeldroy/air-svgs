@@ -1,7 +1,6 @@
 import air
 import importlib
 from air_markdown import Markdown
-from svgs import Air1ColorLogo, Air3ColorLogo
 from fastapi import HTTPException
 from fastapi import FastAPI
 from pathlib import Path
@@ -76,21 +75,85 @@ def index():
                         class_="hero"
                     ),
                     
-                    # Logo Grid Section
+                    # Core Logos Section
+                    air.H2("Core Logos", _style="margin-top: 2rem;"),
                     air.Div(
                         LogoCard(
-                            "1-Color",
-                            air.Img(src="/static/air-deep-sky-blue.svg", alt="Air logo 1-color", width=200, height=200),
+                            "Light Theme",
+                            air.Img(src="/static/air.svg", alt="Air logo", width=200),
                             [
-                                air.A("Download SVG", href="/static/air-deep-sky-blue.svg", download="air-logo-1color.svg", class_="btn-primary"),
-                                air.A("Neon Variant", href="/static/air-neon.svg", download="air-logo-neon.svg", class_="secondary outline")
+                                air.A("Download SVG", href="/static/air.svg", download="air.svg", class_="btn-primary")
                             ]
                         ),
                         LogoCard(
-                            "3-Color",
-                            air.Img(src="/static/air-3color.svg", alt="Air logo 3-color", width=200, height=200),
+                            "Dark Theme",
+                            air.Div(
+                                air.Img(src="/static/air-dark.svg", alt="Air logo dark", width=200),
+                                _style="background: #1a1a1a; padding: 1rem; border-radius: 0.5rem;"
+                            ),
                             [
-                                air.A("Download SVG", href="/static/air-3color.svg", download="air-logo-3color.svg", class_="btn-primary")
+                                air.A("Download SVG", href="/static/air-dark.svg", download="air-dark.svg", class_="btn-primary")
+                            ]
+                        ),
+                        class_="logo-grid"
+                    ),
+
+                    # Style Variants Section
+                    air.H2("Style Variants", _style="margin-top: 2rem;"),
+                    air.Div(
+                        LogoCard(
+                            "Gradient",
+                            air.Img(src="/static/air-gradient.svg", alt="Air logo gradient", width=200),
+                            [
+                                air.A("Download", href="/static/air-gradient.svg", download="air-gradient.svg", class_="btn-primary")
+                            ]
+                        ),
+                        LogoCard(
+                            "Monochrome",
+                            air.Img(src="/static/air-mono.svg", alt="Air logo mono", width=200),
+                            [
+                                air.A("Download", href="/static/air-mono.svg", download="air-mono.svg", class_="btn-primary")
+                            ]
+                        ),
+                        LogoCard(
+                            "Knockout",
+                            air.Img(src="/static/air-knockout.svg", alt="Air logo knockout", width=200),
+                            [
+                                air.A("Download", href="/static/air-knockout.svg", download="air-knockout.svg", class_="btn-primary")
+                            ]
+                        ),
+                        class_="logo-grid"
+                    ),
+
+                    # Animated Variants Section
+                    air.H2("Animated", _style="margin-top: 2rem;"),
+                    air.Div(
+                        LogoCard(
+                            "Pulse",
+                            air.Img(src="/static/air-animated-pulse.svg", alt="Air logo pulse animation", width=200),
+                            [
+                                air.A("Download", href="/static/air-animated-pulse.svg", download="air-animated-pulse.svg", class_="btn-primary")
+                            ]
+                        ),
+                        LogoCard(
+                            "Float",
+                            air.Img(src="/static/air-animated-float.svg", alt="Air logo float animation", width=200),
+                            [
+                                air.A("Download", href="/static/air-animated-float.svg", download="air-animated-float.svg", class_="btn-primary")
+                            ]
+                        ),
+                        LogoCard(
+                            "Spinner",
+                            air.Img(src="/static/air-animated-spinner.svg", alt="Air logo spinner animation", width=200),
+                            [
+                                air.A("Download", href="/static/air-animated-spinner.svg", download="air-animated-spinner.svg", class_="btn-primary")
+                            ]
+                        ),
+                        LogoCard(
+                            "Shimmer",
+                            air.Img(src="/static/air-animated-shimmer.svg", alt="Air logo shimmer animation", width=200),
+                            [
+                                air.A("Download", href="/static/air-animated-shimmer.svg", download="air-animated-shimmer.svg", class_="btn-primary")
                             ]
                         ),
                         class_="logo-grid"
