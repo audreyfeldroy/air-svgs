@@ -223,8 +223,10 @@ def mdpage(request: air.Request, slug: str):
     if path.exists():
         text = path.read_text()
         # TODO add fetching of page title from first H1 tag
+        # Wrap in air.Raw() because air-markdown's Markdown class overrides
+        # render() but Air uses _render() internally for child rendering
         return layout(
-            request, Markdown(text)
+            request, air.Raw(Markdown(text).render())
         )
     path = Path(f"pages/{slug}.py")
     if path.exists():
